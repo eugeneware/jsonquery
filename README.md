@@ -28,6 +28,5 @@ generator(100) // a readable stream that outputs JSON documents
   })
   .on('end', function () {
     expect(count).to.equal(2);
-    done();
   });
 ```
