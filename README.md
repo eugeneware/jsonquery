@@ -9,7 +9,9 @@ filtering stream;
 
 To install, use npm:
 
-  $ npm install jsonquery
+```
+$ npm install jsonquery
+```
 
 ## Examples
 
