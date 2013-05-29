@@ -1,0 +1,29 @@
+{
+  "name": "jsonquery",
+  "version": "0.0.0",
+  "description": "MongoDB query language implemented as a Streaming filter",
+  "main": "jsonquery.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nharbour/jsonquery"
+  },
+  "keywords": [
+    "json",
+    "mongodb",
+    "stream",
+    "filter",
+    "query",
+    "database",
+    "levelup",
+    "leveldb"
+  ],
+  "author": "Eugene Ware <eugene@noblesamurai.com>",
+  "license": "BSD",
+  "devDependencies": {
+    "chai": "~1.6.0",
+    "mocha": "~1.10.0"
+  }
+}
