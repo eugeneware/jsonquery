@@ -26,7 +26,7 @@ function generator(n) {
       setImmediate(next);
     }
   }
-  setTimeout(next, 0);
+  setImmediate(next);
   return s;
 }
 
