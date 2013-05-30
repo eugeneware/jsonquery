@@ -1,7 +1,7 @@
 {
   "name": "jsonquery",
-  "version": "0.0.1",
-  "description": "MongoDB query language implemented as a Streaming filter",
+  "version": "0.0.2",
+  "description": "MongoDB query language implemented as a node.js Stream",
   "main": "jsonquery.js",
   "scripts": {
     "test": "node_modules/.bin/mocha"
@@ -13,6 +13,7 @@
   "keywords": [
     "json",
     "mongodb",
+    "mongo",
     "stream",
     "filter",
     "query",
