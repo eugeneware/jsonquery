@@ -33,7 +33,7 @@ function generator(n) {
 describe('jsonquery tests', function () {
   var size = 100;
 
-	it('should be able to do basic queries', function (done) {
+  it('should be able to do basic queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ number: 'Number 7' }))
@@ -49,7 +49,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do basic AND queries', function (done) {
+  it('should be able to do basic AND queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ number: 'Number 7', val: 70 }))
@@ -65,7 +65,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do basic OR queries', function (done) {
+  it('should be able to do basic OR queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ $or:  [ { number: 'Number 7' }, { val: 50 } ] }))
@@ -79,7 +79,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do basic $AND queries', function (done) {
+  it('should be able to do basic $AND queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ $and:  [ { number: 'Number 7' }, { val: 70 } ] }))
@@ -94,7 +94,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do nested $or and $and queries', function (done) {
+  it('should be able to do nested $or and $and queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ $or:  [ { $and: [ { number: 'Number 7' }, { val: 70 } ] }, { val: 50 } ] }))
@@ -108,7 +108,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do basic $in queries', function (done) {
+  it('should be able to do basic $in queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ val: { $in: [ 70, 50 ] } }))
@@ -122,7 +122,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $or and $in queries', function (done) {
+  it('should be able to do $or and $in queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ val: { $or: [ { $in: [ 70, 50 ] }, { $in: [ 60, 20 ] } ] } }))
@@ -136,7 +136,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $gt queries', function (done) {
+  it('should be able to do $gt queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ val: { $gt: 900 } }))
@@ -150,7 +150,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $lt queries', function (done) {
+  it('should be able to do $lt queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ val: { $lt: 900 } }))
@@ -164,7 +164,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to nest $or, $lt, and $gt', function (done) {
+  it('should be able to nest $or, $lt, and $gt', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ val: { $or: [ { $lt: 20 }, { $gt: 950 } ] } }))
@@ -177,7 +177,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to nest $and, $lt, and $gt', function (done) {
+  it('should be able to nest $and, $lt, and $gt', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ val: { $and: [ { $gt: 970 }, { $gt: 950 } ] } }))
@@ -192,7 +192,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $ne queries', function (done) {
+  it('should be able to do $ne queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ val: { $ne: 900 } }))
@@ -206,7 +206,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $lte queries', function (done) {
+  it('should be able to do $lte queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ val: { $lte: 900 } }))
@@ -220,7 +220,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $gte queries', function (done) {
+  it('should be able to do $gte queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ val: { $gte: 900 } }))
@@ -234,7 +234,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $all queries', function (done) {
+  it('should be able to do $all queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ favorites: { $all: [50, 60] } }))
@@ -248,7 +248,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $elemMatch queries', function (done) {
+  it('should be able to do $elemMatch queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ tree: { $elemMatch: { a: 1, b: 2 } } }))
@@ -263,7 +263,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do child queries', function (done) {
+  it('should be able to do child queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ 'tree.a': 1 }))
@@ -277,7 +277,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do nested child queries', function (done) {
+  it('should be able to do nested child queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ 'tree.a': { $in: [1, 5] } }))
@@ -291,7 +291,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do regex queries', function (done) {
+  it('should be able to do regex queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ number: /er 7$/ }))
@@ -305,7 +305,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $in queries with regex', function (done) {
+  it('should be able to do $in queries with regex', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ number: { $in: [ /er 7$/, /er 5$/ ] } }))
@@ -319,7 +319,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $all queries with regex', function (done) {
+  it('should be able to do $all queries with regex', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ favorites: { $all: [/^50$/, /^60$/] } }))
@@ -333,7 +333,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $elemMatch queries with regex', function (done) {
+  it('should be able to do $elemMatch queries with regex', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ tree: { $elemMatch: { a: /^1$/, b: 2 } } }))
@@ -348,7 +348,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do basic $nin queries', function (done) {
+  it('should be able to do basic $nin queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ val: { $nin: [ 70, 50 ] } }))
@@ -363,7 +363,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do basic $mod queries', function (done) {
+  it('should be able to do basic $mod queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ val: { $mod: [ 7, 1 ] } }))
@@ -377,7 +377,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $size queries', function (done) {
+  it('should be able to do $size queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ favorites: { $size: 2 } }))
@@ -391,7 +391,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do $exists queries', function (done) {
+  it('should be able to do $exists queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ $and: [ { tree: { $exists: true } }, { missing: { $exists: false } } ] }))
@@ -406,7 +406,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should have limited support for $type queries', function (done) {
+  it('should have limited support for $type queries', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({
@@ -427,7 +427,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do basic $not queries part 1', function (done) {
+  it('should be able to do basic $not queries part 1', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ $not: { number: 'Number 7', val: 70 } }))
@@ -442,7 +442,7 @@ describe('jsonquery tests', function () {
       });
   });
 
-	it('should be able to do basic $not queries part 2', function (done) {
+  it('should be able to do basic $not queries part 2', function (done) {
     var count = 0;
     generator(size)
       .pipe(jsonquery({ number: { $not: { $nin: ['Number 7'] } } }))
