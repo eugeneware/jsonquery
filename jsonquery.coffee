@@ -193,3 +193,4 @@ queryStream = (query) ->
   s
 
 module.exports = queryStream
+module.exports.match = match
