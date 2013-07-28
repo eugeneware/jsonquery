@@ -18,6 +18,8 @@
   eq = function(a, b) {
     if (b instanceof RegExp) {
       return b.test(a);
+    } else if (Array.isArray(a)) {
+      return a.indexOf(b) !== -1;
     } else {
       return b === a;
     }
