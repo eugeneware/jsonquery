@@ -214,6 +214,8 @@
 
   module.exports = queryStream;
 
-  module.exports.match = match;
+  module.exports.match = function(haystack, predicate) {
+    return match(predicate, haystack);
+  };
 
 }).call(this);

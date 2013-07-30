@@ -195,4 +195,5 @@ queryStream = (query) ->
   s
 
 module.exports = queryStream
-module.exports.match = match
+module.exports.match = (haystack, predicate) ->
+  match predicate, haystack
