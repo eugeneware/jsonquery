@@ -1,6 +1,6 @@
 {
   "name": "jsonquery",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "MongoDB query language implemented as a node.js Stream",
   "main": "jsonquery.js",
   "scripts": {
