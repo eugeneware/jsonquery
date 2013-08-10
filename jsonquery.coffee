@@ -6,6 +6,7 @@ lookup = (needle, haystack) ->
 
   val = haystack
   for key in keys
+    return if val is undefined
     val = val[key]
 
   val

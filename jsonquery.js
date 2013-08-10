@@ -10,6 +10,9 @@
     val = haystack;
     for (_i = 0, _len = keys.length; _i < _len; _i++) {
       key = keys[_i];
+      if (val === void 0) {
+        return;
+      }
       val = val[key];
     }
     return val;
