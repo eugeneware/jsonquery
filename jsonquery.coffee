@@ -53,7 +53,7 @@ match = (predicate, haystack) ->
     if n[0] == '$'
       matches += operator n, v, haystack
     # complex RHS predicate (eg. $in, $gt)
-    else if v.constructor == Object
+    else if v and v.constructor == Object
       matches++ if valOpMatch(lookup(n, haystack), v, haystack)
     # simple lookup
     else
