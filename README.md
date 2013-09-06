@@ -5,6 +5,8 @@ MongoDB query language implemented as a Streaming filter.
 This library implements the entire MongoDB query language as a node.js
 filtering stream;
 
+[![build status](https://secure.travis-ci.org/eugeneware/jsonquery.png)](http://travis-ci.org/eugeneware/jsonquery)
+
 ## Installation
 
 To install, use npm:
