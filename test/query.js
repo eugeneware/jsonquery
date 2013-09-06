@@ -23,10 +23,10 @@ function generator(n) {
     if (i == n) {
       s.emit('end');
     } else {
-      setImmediate(next);
+      process.nextTick(next);
     }
   }
-  setImmediate(next);
+  process.nextTick(next);
   return s;
 }
 
