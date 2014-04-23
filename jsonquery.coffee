@@ -89,11 +89,13 @@ valOp = (op, val, args, haystack) ->
     when '$all'
       matchCount = args.length
       matches = 0
-      for part in args
-        for v in val
-          if eq(v, part)
-            matches++
-            break
+
+      if val
+        for part in args
+          for v in val
+            if eq(v, part)
+              matches++
+              break
 
       matches == matchCount
 

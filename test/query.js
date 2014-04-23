@@ -455,4 +455,23 @@ describe('jsonquery tests', function () {
         done();
       });
   });
+
+  it('should not match a document missing a field', function (done) {
+    var count = 0;
+    stream = jsonquery({ foo: { $all: ['bar'] } })
+
+    stream
+      .on('data', function (doc) {
+        expect(doc.foo).to.deep.equal(['bar']);
+        count++;
+      })
+      .on('end', function () {
+        expect(count).to.equal(1);
+        done();
+      });
+
+    stream.write({ bar: ['baz'] })
+    stream.write({ foo: ['bar'] })
+    stream.end()
+  });
 });
