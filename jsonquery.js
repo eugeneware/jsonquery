@@ -55,7 +55,8 @@
       v = predicate[n];
       if (n[0] === '$') {
         matches += operator(n, v, haystack);
-      } else if (v && v.constructor === Object) {
+      } else if (v && (v.constructor === Object ||
+          (typeof v === 'object' && !(v instanceof RegExp)))) {
         if (valOpMatch(lookup(n, haystack), v, haystack)) {
           matches++;
         }
