@@ -35,7 +35,7 @@
       case 2:
         return typeof val === 'string';
       case 3:
-        return typeof val === 'object';
+        return typeof val === 'object' && !(val instanceof Array);
       case 4:
         return val instanceof Array;
       case 8:
