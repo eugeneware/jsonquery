@@ -11,10 +11,17 @@ lookup = (needle, haystack) ->
 
   val
 
-# equality that also does comparison against RegExps
+# equality that also does comparison against RegExps on the RHS
+# and looks into arrays on the LHS
 eq = (a, b) ->
   if b instanceof RegExp
-    b.test a
+    if Array.isArray(a)
+      for v in a
+        if b.test v
+          return true
+      false
+    else
+      b.test a
   else if Array.isArray(a)
     a.indexOf(b) != -1
   else
