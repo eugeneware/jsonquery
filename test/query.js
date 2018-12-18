@@ -333,6 +333,28 @@ describe('jsonquery tests', function () {
       });
   });
 
+  it('should be able to do $in queries with regex over array', function (done) {
+    function containsQueriedValues(haystack) {
+      for (var i = 0; i < haystack.length; i++) {
+        if ([50, 60].indexOf(haystack[i]) >= 0) {
+          return true;
+        }
+      }
+      return false;
+    }
+    var count = 0;
+    generator(size)
+      .pipe(jsonquery({ favorites: { $in: [ /^50$/, /^60$/ ] } }))
+      .on('data', function (doc) {
+        expect(doc.favorites).to.satisfy(containsQueriedValues);
+        count++;
+      })
+      .on('end', function () {
+        expect(count).to.equal(3);
+        done();
+      });
+  });
+
   it('should be able to do $elemMatch queries with regex', function (done) {
     var count = 0;
     generator(size)

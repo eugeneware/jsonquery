@@ -19,8 +19,19 @@
   };
 
   eq = function(a, b) {
+    var i, v;
     if (b instanceof RegExp) {
-      return b.test(a);
+			if (Array.isArray(a)) {
+        for (i = 0; i < a.length; i++) {
+          v = a[i];
+          if (b.test(v)) {
+            return true;
+          }
+        }
+        return false;
+      } else {
+        return b.test(a);
+      }
     } else if (Array.isArray(a)) {
       return a.indexOf(b) !== -1;
     } else {
